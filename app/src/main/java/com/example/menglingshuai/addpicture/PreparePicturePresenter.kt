@@ -46,22 +46,22 @@ class PreparePicturePresenter(view: PreparePictureView) : ActivityPresenter<Prep
         })
     }
 
-//    fun addPicturesFromGallery(data: Array<String>?) {
-//        if (data == null || data.isEmpty()) {
-//            return view.showAddPictureError("没有选择图片或选择图片失败")
-//        }
-//        if (data.size == 1) {
-//            addPicture(data[0])
-//            liveData.value = pictures.toList()
-//        } else if (view.getAddiblePictureCount() > 0) {
-//            val ims = mutableListOf<String>()
-//            for (i in 0..Math.min(data.size - 1, view.getAddiblePictureCount() - 1)) {
-//                ims.add(data[i])
-//            }
-//            addPicture(ims)
-//            liveData.value = pictures.toList()
-//        }
-//    }
+    fun addPicturesFromGallery(data: Array<String>?) {
+        if (data == null || data.isEmpty()) {
+            return view.showAddPictureError("没有选择图片或选择图片失败")
+        }
+        if (data.size == 1) {
+            addPicture(data[0])
+            liveData.value = pictures.toList()
+        } else if (view.getAddiblePictureCount() > 0) {
+            val ims = mutableListOf<String>()
+            for (i in 0..Math.min(data.size - 1, view.getAddiblePictureCount() - 1)) {
+                ims.add(data[i])
+            }
+            addPicture(ims)
+            liveData.value = pictures.toList()
+        }
+    }
 
 
     fun addPicturesFromGallery(data: Intent?) {

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 import com.example.menglingshuai.addpicture.R;
 
@@ -80,6 +81,7 @@ class ImageCaptureHelper {
         if (currentVersuion < 24) {
             intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mOutFile));
         } else {
+            Log.e("aaaddd", "1111111111" + activity.getApplicationContext().getPackageName());
             Uri imageUri = FileProvider.getUriForFile(activity, activity.getApplicationContext().getPackageName() + ".fileprovider", mOutFile);//通过FileProvider创建一个content类型的Uri
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION); //添加这一句表示对目标应用临时授权该Uri所代表的文件
             intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);//将拍取的照片保存到指定URI

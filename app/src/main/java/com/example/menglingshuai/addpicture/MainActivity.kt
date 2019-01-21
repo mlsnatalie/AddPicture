@@ -38,16 +38,16 @@ class MainActivity : BaseActivity<PreparePicturePresenter>(), PreparePictureView
             itemClick = { src, index -> previewPicture(src, index) })
     }
 
-//    private val imageSelector by lazy {
-//        ImageSelectorFragment.create(supportFragmentManager, true).apply {
-//            success = {imagePaths ->
-//                if(imagePaths != null) { presenter.addPicturesFromGallery(imagePaths) }
-//            }
-//            fail = {
-//                ToastUtils.showToastOfEWD(this@MainActivity, "增加图片失败")
-//            }
-//        }
-//    }
+    private val imageSelector by lazy {
+        ImageSelectorFragment.create(supportFragmentManager, true).apply {
+            success = {imagePaths ->
+                if(imagePaths != null) { presenter.addPicturesFromGallery(imagePaths) }
+            }
+            fail = {
+                ToastUtils.showToastOfEWD(this@MainActivity, "增加图片失败")
+            }
+        }
+    }
 
     private var isActivityStopped = true
 
@@ -97,30 +97,30 @@ class MainActivity : BaseActivity<PreparePicturePresenter>(), PreparePictureView
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-//        when(requestCode) {
-//            REQUEST_CODE_DELETE_PICTURE -> presenter.deletePictureFromPreview(data)
-//            else -> {}
-//        }
-//        imageSelector.onActivityResult(this, isActivityStopped, requestCode, resultCode, data)
         when(requestCode) {
-
-            REQUEST_CODE_ADD_PICTURE -> presenter.addPicturesFromGallery(data)
             REQUEST_CODE_DELETE_PICTURE -> presenter.deletePictureFromPreview(data)
             else -> {}
         }
+        imageSelector.onActivityResult(this, isActivityStopped, requestCode, resultCode, data)
+//        when(requestCode) {
+//
+//            REQUEST_CODE_ADD_PICTURE -> presenter.addPicturesFromGallery(data)
+//            REQUEST_CODE_DELETE_PICTURE -> presenter.deletePictureFromPreview(data)
+//            else -> {}
+//        }
+    }
+
+    private fun addPicture() {
+        imageSelector.show()
     }
 
 //    private fun addPicture() {
-//        imageSelector.show()
+//        val intent = Intent()
+//        intent.type = "image/*"
+//        intent.action = Intent.ACTION_GET_CONTENT
+//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+//        startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_CODE_ADD_PICTURE)
 //    }
-
-    private fun addPicture() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_CODE_ADD_PICTURE)
-    }
 
     private fun previewPicture(src: String, index: Int) {
         val intent = Intent(this, PicturePreviewActivity::class.java)
