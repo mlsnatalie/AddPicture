@@ -9,12 +9,23 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Toast
-import com.github.dfqin.grantor.PermissionListener
-import com.github.dfqin.grantor.PermissionsUtil
+//import com.github.dfqin.grantor.PermissionListener
+//import com.github.dfqin.grantor.PermissionsUtil
 import com.ytx.appframework.BaseActivity
+import com.ytx.appframework.PermissionListener
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<PreparePicturePresenter>(), PreparePictureView {
+class MainActivity : BaseActivity<PreparePicturePresenter>(), PreparePictureView, PermissionListener {
+    override fun onGranted() {
+        Toast.makeText(this@MainActivity, "访问内部存储", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onGranted(grantedPermission: MutableList<String>?) {
+        Toast.makeText(this@MainActivity, "访问内部存储", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDenied(deniedPermission: MutableList<String>?) {
+    }
 
     companion object {
         private const val REQUEST_CODE_ADD_PICTURE = 1001
@@ -43,7 +54,11 @@ class MainActivity : BaseActivity<PreparePicturePresenter>(), PreparePictureView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        requestReadPhoneState()
+        val array = arrayOfNulls<String>(1)
+        array[0] = Manifest.permission.READ_EXTERNAL_STORAGE
+        requestRunTimePermission(array, this)
+
+//        requestReadPhoneState()
 
         rv_pictures.apply {
             layoutManager = GridLayoutManager(context, 4, LinearLayoutManager.VERTICAL, false)
@@ -56,19 +71,19 @@ class MainActivity : BaseActivity<PreparePicturePresenter>(), PreparePictureView
         }
     }
 
-    private fun requestReadPhoneState() {
-
-        PermissionsUtil.requestPermission(this, object : PermissionListener {
-            override fun permissionDenied(permission: Array<out String>) {
-                Toast.makeText(this@MainActivity, "访问内部存储", Toast.LENGTH_LONG).show()
-            }
-
-            override fun permissionGranted(permission: Array<out String>) {
-                Toast.makeText(this@MainActivity, "用户拒绝了访问内部存储", Toast.LENGTH_LONG).show()
-            }
-
-        }, Manifest.permission.READ_EXTERNAL_STORAGE)
-    }
+//    private fun requestReadPhoneState() {
+//
+//        PermissionsUtil.requestPermission(this, object : PermissionListener {
+//            override fun permissionDenied(permission: Array<out String>) {
+//                Toast.makeText(this@MainActivity, "访问内部存储", Toast.LENGTH_LONG).show()
+//            }
+//
+//            override fun permissionGranted(permission: Array<out String>) {
+//                Toast.makeText(this@MainActivity, "用户拒绝了访问内部存储", Toast.LENGTH_LONG).show()
+//            }
+//
+//        }, Manifest.permission.READ_EXTERNAL_STORAGE)
+//    }
 
     override fun onResume() {
         super.onResume()

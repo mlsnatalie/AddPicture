@@ -61,7 +61,7 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends Fragment
     /**
      * 权限授权回调
      */
-//    PermissionListener mPermissionListener;
+    PermissionListener mPermissionListener;
 
     public final boolean isDestroy() {
         return isDestroy;
@@ -460,24 +460,24 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends Fragment
      * @param permissions
      * @param listener
      */
-//    protected void requestRunTimePermission(String[] permissions, PermissionListener listener) {
-//
-//        //todo 获取栈顶activity，如果null。return；
-//
-//        this.mPermissionListener = listener;
-//
-//        List<String> permissionList = new ArrayList<>();
-//        for (String permission : permissions) {
-//            if(ContextCompat.checkSelfPermission(this,permission)!= PackageManager.PERMISSION_GRANTED){
-//                permissionList.add(permission);
-//            }
-//        }
-//        if(!permissionList.isEmpty()){
-//            ActivityCompat.requestPermissions(this,permissionList.toArray(new String[permissionList.size()]),1);
-//        }else{
-//            listener.onGranted();
-//        }
-//    }
+    protected void requestRunTimePermission(String[] permissions, PermissionListener listener) {
+
+        //todo 获取栈顶activity，如果null。return；
+
+        this.mPermissionListener = listener;
+
+        List<String> permissionList = new ArrayList<>();
+        for (String permission : permissions) {
+            if(ContextCompat.checkSelfPermission(this,permission)!= PackageManager.PERMISSION_GRANTED){
+                permissionList.add(permission);
+            }
+        }
+        if(!permissionList.isEmpty()){
+            ActivityCompat.requestPermissions(this,permissionList.toArray(new String[permissionList.size()]),1);
+        }else{
+            listener.onGranted();
+        }
+    }
 
     /**
      * 申请结果
@@ -485,33 +485,33 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends Fragment
      * @param permissions
      * @param grantResults
      */
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        switch (requestCode){
-//            case 1:
-//                if (grantResults.length>0){
-//                    List<String> deniedPermissions = new ArrayList<>();
-//                    List<String> grantedPermissions = new ArrayList<>();
-//                    for (int i = 0; i < grantResults.length; i++) {
-//                        int grantResult = grantResults[i];
-//                        if (grantResult != PackageManager.PERMISSION_GRANTED){
-//                            String permission = permissions[i];
-//                            deniedPermissions.add(permission);
-//                        }else{
-//                            String permission = permissions[i];
-//                            grantedPermissions.add(permission);
-//                        }
-//                    }
-//
-//                    if (deniedPermissions.isEmpty()){
-//                        mPermissionListener.onGranted();
-//                    }else{
-//                        mPermissionListener.onDenied(deniedPermissions);
-//                        mPermissionListener.onGranted(grantedPermissions);
-//                    }
-//                }
-//                break;
-//        }
-//    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                if (grantResults.length>0){
+                    List<String> deniedPermissions = new ArrayList<>();
+                    List<String> grantedPermissions = new ArrayList<>();
+                    for (int i = 0; i < grantResults.length; i++) {
+                        int grantResult = grantResults[i];
+                        if (grantResult != PackageManager.PERMISSION_GRANTED){
+                            String permission = permissions[i];
+                            deniedPermissions.add(permission);
+                        }else{
+                            String permission = permissions[i];
+                            grantedPermissions.add(permission);
+                        }
+                    }
+
+                    if (deniedPermissions.isEmpty()){
+                        mPermissionListener.onGranted();
+                    }else{
+                        mPermissionListener.onDenied(deniedPermissions);
+                        mPermissionListener.onGranted(grantedPermissions);
+                    }
+                }
+                break;
+        }
+    }
 }
