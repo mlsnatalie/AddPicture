@@ -1,4 +1,4 @@
-package com.example.menglingshuai.addpicture
+package com.example.menglingshuai.addpicture.utils
 
 import android.content.Context
 import android.os.Build
@@ -9,6 +9,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.TextView
 import android.widget.Toast
+import com.example.menglingshuai.addpicture.R
 import java.lang.reflect.Field
 
 /**
@@ -71,7 +72,9 @@ object ToastUtils {
         try {
             val tn = sField_TN!!.get(toast)
             val preHandler = sField_TN_Handler!!.get(tn) as Handler
-            sField_TN_Handler!!.set(tn, SafelyHandlerWarpper(preHandler))
+            sField_TN_Handler!!.set(tn,
+                SafelyHandlerWarpper(preHandler)
+            )
         } catch (e: Exception) {
             e.printStackTrace()
         }

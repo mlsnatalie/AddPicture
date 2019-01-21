@@ -1,4 +1,4 @@
-package com.example.menglingshuai.addpicture;
+package com.example.menglingshuai.addpicture.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

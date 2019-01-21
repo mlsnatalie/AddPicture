@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.example.menglingshuai.addpicture.utils.DisplayUtil
 import kotlinx.android.synthetic.main.item_camera_picture_prepare.view.*
 import kotlinx.android.synthetic.main.item_camera_picture_prepare_add.view.*
 

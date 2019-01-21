@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Toast
+import com.example.menglingshuai.addpicture.utils.DisplayUtil
+import com.example.menglingshuai.addpicture.utils.ToastUtils
 //import com.github.dfqin.grantor.PermissionListener
 //import com.github.dfqin.grantor.PermissionsUtil
 import com.ytx.appframework.BaseActivity

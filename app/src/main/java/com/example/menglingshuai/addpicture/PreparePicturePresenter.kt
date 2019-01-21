@@ -6,6 +6,7 @@ import android.arch.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
 import android.view.View
+import com.example.menglingshuai.addpicture.utils.FileUtils
 import com.ytx.mvpframework.presenter.ActivityPresenter
 import com.ytx.mvpframework.view.IView
 
