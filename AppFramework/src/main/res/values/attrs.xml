@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TitleBar">
+        <attr name="ytx_title" format="string" />
+        <attr name="ytx_title_text_size" format="reference|dimension" />
+        <attr name="ytx_title_text_color" format="reference|color" />
+        <attr name="ytx_small_title" format="string" />
+        <attr name="ytx_small_title_text_size" format="reference|dimension" />
+        <attr name="ytx_small_title_text_color" format="reference|color" />
+        <attr name="ytx_is_show_small_title" format="boolean" />
+        <attr name="ytx_is_title_bold" format="boolean" />
+        <attr name="ytx_left_icon" format="reference" />
+        <attr name="ytx_left_text" format="string" />
+        <attr name="ytx_left_text_size" format="reference|dimension" />
+        <attr name="ytx_left_text_color" format="reference|color" />
+        <attr name="ytx_right_icon" format="reference" />
+        <attr name="ytx_right_text" format="string" />
+        <attr name="ytx_right_text_size" format="reference|dimension" />
+        <attr name="ytx_right_text_color" format="reference|color" />
+        <attr name="ytx_left_show" format="enum">
+            <enum name="icon" value="1" />
+            <enum name="text" value="2" />
+            <enum name="all" value="3" />
+            <enum name="none" value="0" />
+        </attr>
+        <attr name="ytx_right_show" format="enum">
+            <enum name="icon" value="1" />
+            <enum name="text" value="2" />
+            <enum name="all" value="3" />
+            <enum name="none" value="0" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ProgressContent">
+        <attr name="error_view" format="reference" />
+        <attr name="empty_view" format="reference" />
+        <attr name="progress_view" format="reference" />
+    </declare-styleable>
+</resources>

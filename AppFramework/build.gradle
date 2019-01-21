@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    uploadArchives {
+        repositories {
+            apply plugin: 'maven'
+            mavenDeployer {
+                pom.groupId = groupId
+                pom.artifactId = 'appframework'
+                pom.version = "1.0.3"
+                repository(url: mavenServer + mavenReleases) {
+                    authentication(userName: repoUsername, password: repoPassword)
+                }
+
+//                pom.version = "1.0.3-SNAPSHOT"
+//                snapshotRepository(url: mavenServer + mavenSnapshots) {
+//                    authentication(userName: repoUsername, password: repoPassword)
+//                }
+            }
+
+            task androidSourcesJar(type: Jar) {
+                classifier = 'sources'
+                from android.sourceSets.main.java.sourceFiles
+            }
+
+            artifacts {
+                archives androidSourcesJar
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    testImplementation 'junit:junit:4.12'
+    compileOnly 'com.android.support:appcompat-v7:26.1.0'
+    compileOnly project(':MvpFramework')
+    compileOnly "org.greenrobot:eventbus:3.1.1"
+}

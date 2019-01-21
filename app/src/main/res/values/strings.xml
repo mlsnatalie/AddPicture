@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AddPicture</string>
+    <string name="camera_record_prepare">录前准备</string>
+    <string name="camera_picture_to_comment">您要讲解的图片</string>
+    <string name="camera_picture_add_shortcut_bar">图片会加入快捷栏</string>
+    <string name="camera_add_picture">添加图片</string>
+    <string name="camera_picture_amount_limit_11">最多添加11张图片，点击图片可预览删除</string>
+    <string name="camera_picture_delete_all">全部删除</string>
+    <string name="camera_picture_delete">删除</string>
+    <string name="camera_picture_preview">预览</string>
+    <string name="exit">再按一次退出程序</string>
+    <string name="camera_confirm">确定</string>
+    <string name="camera_known">知道了</string>
+    <string name="camera_cancel">取消</string>
+    <!--image selector-->
+    <string name="camera_capture_image">拍摄</string>
+    <string name="camera_choose_image_from_gallery">从手机相册选择</string>
+    <string name="hint_no_camera_permission">请您至设置-隐私开通app访问相册权限</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="camera_big_size">24dp</dimen>
+    <dimen name="camera_high_size">19dp</dimen>
+    <dimen name="camera_normal_size">17dp</dimen>
+    <dimen name="camera_mediums_size">15dp</dimen>
+    <dimen name="camera_small_size">13dp</dimen>
+    <dimen name="camera_very_small_size">11dp</dimen>
+    <dimen name="camera_controller_height">159dp</dimen>
+    <dimen name="camera_controller_margin_bottom">0dp</dimen>
+    <dimen name="camera_height">133dp</dimen>
+    <dimen name="camera_width">75dp</dimen>
+
+    <dimen name="dp15">15dp</dimen>
+
+    <dimen name="camera_divider">0.5dp</dimen>
+    <dimen name="camera_video_manager_height">165dp</dimen>
+</resources>

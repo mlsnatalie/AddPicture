@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF5640</color>
+    <color name="colorPrimaryDark">#FF5640</color>
+    <color name="colorAccent">#FF5640</color>
+
+    <color name="title_bar_bg_color">#FF5640</color>
+    <color name="title_bar_left_text_color">#ffffff</color>
+    <color name="title_bar_center_text_color">#ffffff</color>
+    <color name="title_bar_small_text_color">#ffffff</color>
+    <color name="title_bar_right_text_color">#ffffff</color>
+
+    <color name="bg_progress_content">#ffffff</color>
+</resources>

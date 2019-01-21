@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_title_bar_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:background="@color/title_bar_bg_color"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/title_bar_center_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_title_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="标题"
+            android:textColor="@color/title_bar_center_text_color"
+            android:textSize="@dimen/title_bar_center_text_size" />
+
+        <TextView
+            android:id="@+id/tv_small_title_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="@color/title_bar_small_text_color"
+            android:textSize="@dimen/title_bar_small_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/title_bar_left_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="45dp"
+            android:scaleType="center"
+            android:src="@mipmap/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
+            android:text="@string/title_bar_back"
+            android:textColor="@color/title_bar_left_text_color"
+            android:textSize="@dimen/title_bar_left_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/title_bar_right_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right">
+
+        <TextView
+            android:id="@+id/tv_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:text="注册"
+            android:textColor="@color/title_bar_right_text_color"
+            android:textSize="@dimen/title_bar_right_text_size" />
+
+        <ImageView
+            android:id="@+id/iv_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="45dp"
+            android:scaleType="center" />
+    </LinearLayout>
+</FrameLayout>

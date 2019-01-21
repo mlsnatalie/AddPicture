@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="camera_white_main">#cccccc</color>
+    <color name="camera_white">#ffffff</color>
+    <color name="camera_gray">#999999</color>
+    <color name="camera_red">#ff8080</color>
+    <color name="camera_green">#59b370</color>
+    <color name="camera_black">#cccccc</color>
+
+    <color name="camera_line_color">#12141f</color>
+    <color name="camera_line_dark_color">#000000</color>
+    <color name="camera_main_bg">#151923</color>
+    <color name="camera_block_content_bg">#1a1e2e</color>
+    <color name="camera_bg_title_bar">#1a1e2e</color>
+    <color name="camera_gray_border">#282539</color>
+
+    <color name="camera_controller_status_bar">#CF2345</color>
+    <color name="camera_bg_dialog_choose">#323a59</color>
+    <color name="camera_dialog_divider">#12141f</color>
+    <color name="camera_bg_dialog_guide">#4c000000</color>
+
+    <color name="camera_bg_toast">#cc000000</color>
+
+    <color name="camera_caption_scroll_bar">#323A59</color>
+    <color name="camera_text_hint">#666666</color>
+
+    <color name="camera_primary_tag_checked">#475280</color>
+    <color name="video_cover_bg">#11131F</color>
+
+    <color name="image_file_selector_bg_press_color">#000000</color>
+    <color name="image_file_selector_bg_no_press_color">@android:color/transparent</color>
+
+    <color name="white">#ffffff</color>
+</resources>
