@@ -11,7 +11,9 @@
             android:id="@+id/title_bar_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:ytx_title="@string/camera_add_picture"/>
+            app:ytx_title="@string/camera_add_picture"
+            app:ytx_right_show="icon"
+            app:ytx_right_icon="@mipmap/ic_contact"/>
 
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

@@ -7,7 +7,11 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
 import com.example.menglingshuai.addpicture.utils.DisplayUtil
 import com.example.menglingshuai.addpicture.utils.ToastUtils
 import com.ytx.appframework.BaseActivity
@@ -46,6 +50,8 @@ class AddPictureActivity : BaseActivity<PreparePicturePresenter>(), PreparePictu
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addpicture)
 
+        setStatusBarColor(resources.getColor(R.color.camera_bg_title_bar))
+
         title_bar_add.setTitleBarBgColor(resources.getColor(R.color.camera_bg_title_bar))
         val array = arrayOfNulls<String>(1)
         array[0] = Manifest.permission.READ_EXTERNAL_STORAGE
@@ -54,6 +60,21 @@ class AddPictureActivity : BaseActivity<PreparePicturePresenter>(), PreparePictu
 //        requestReadPhoneState()
         title_bar_add.setLeftIconAction {
             //title_bar左侧的监听动作
+            handleBack()
+        }
+
+        /**
+         * 动态处理标题栏右侧图标的大小
+         */
+        title_bar_add.ivRight.run {
+
+            layoutParams.width = DisplayUtil.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24f)
+            layoutParams.height = DisplayUtil.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24f)
+            minimumHeight = 0
+            minimumWidth = 0
+            scaleType = ImageView.ScaleType.FIT_CENTER
+            (layoutParams as? LinearLayout.LayoutParams)?.gravity = Gravity.CENTER
+            (layoutParams as? LinearLayout.LayoutParams)?.rightMargin = 36
         }
 
         rv_pictures.apply {
@@ -185,8 +206,7 @@ class AddPictureActivity : BaseActivity<PreparePicturePresenter>(), PreparePictu
     override fun onDenied(deniedPermission: MutableList<String>?) {
     }
 
-
-    override fun onHandleBack(): Boolean {
-        return super.onHandleBack()
+    override fun handleBack() {
+        super.handleBack()
     }
 }
