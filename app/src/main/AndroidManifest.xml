@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".PicturePreviewActivity"/>
         <activity android:name=".imagefileselector.ImageFileActivity"/>
+        <activity android:name=".AddPictureActivity"/>
         <provider
                 android:name="android.support.v4.content.FileProvider"
                 android:authorities="${applicationId}.fileprovider"

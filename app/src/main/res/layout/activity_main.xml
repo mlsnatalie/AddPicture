@@ -1,88 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/camera_main_bg"
-              android:orientation="vertical">
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!--<com.ytx.appframework.widget.TitleBar-->
-            <!--android:id="@+id/title_bar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--app:ytx_title="@string/camera_add_picture"/>-->
-
-    <android.support.constraint.ConstraintLayout
+    <com.ytx.appframework.widget.TitleBar
+            android:id="@+id/title_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            app:ytx_title="@string/camera_add_picture"
+            app:ytx_left_show="none"
+            tools:ignore="MissingConstraints"/>
 
-        <TextView
-                android:id="@+id/tv_picture_to_comment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/camera_picture_to_comment"
-                android:textColor="@color/camera_white_main"
-                android:textSize="@dimen/camera_big_size"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+            android:id="@+id/to_add_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="图片"
+            android:textSize="20dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/title_bar"
 
-        <TextView
-                android:id="@+id/tv_picture_to_add_shortcut_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="3dp"
-                android:text="@string/camera_picture_add_shortcut_bar"
-                android:textColor="@color/camera_white_main"
-                android:textSize="@dimen/camera_small_size"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_picture_to_comment"/>
+    />
 
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_pictures"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_picture_to_add_shortcut_bar"/>
 
-        <TextView
-                android:id="@+id/tv_picture_amount_limit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="9dp"
-                android:text="@string/camera_picture_amount_limit_11"
-                android:textColor="@color/camera_gray"
-                android:textSize="@dimen/camera_small_size"
-                android:visibility="gone"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_pictures"
-                tools:visibility="visible"/>
-
-        <TextView
-                android:id="@+id/tv_delete_all"
-                style="@style/Button.ReRecord"
-                android:text="@string/camera_picture_delete_all"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/tv_next"
-                tools:visibility="visible"/>
-
-        <TextView
-                android:id="@+id/tv_next"
-                style="@style/Button.Complete"
-                android:text="@string/camera_confirm"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/tv_delete_all"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-    </android.support.constraint.ConstraintLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
