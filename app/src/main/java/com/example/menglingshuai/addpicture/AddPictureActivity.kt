@@ -61,6 +61,7 @@ class AddPictureActivity : BaseActivity<PreparePicturePresenter>(), PreparePictu
         title_bar_add.setLeftIconAction {
             //title_bar左侧的监听动作
             handleBack()
+
         }
 
         /**
