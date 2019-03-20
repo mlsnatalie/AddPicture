@@ -55,6 +55,7 @@ class AddPictureActivity : BaseActivity<PreparePicturePresenter>(), PreparePictu
         title_bar_add.setTitleBarBgColor(resources.getColor(R.color.camera_bg_title_bar))
         val array = arrayOfNulls<String>(1)
         array[0] = Manifest.permission.READ_EXTERNAL_STORAGE
+        array[0] = Manifest.permission.CAMERA
         requestRunTimePermission(array, this)
 
 //        requestReadPhoneState()
