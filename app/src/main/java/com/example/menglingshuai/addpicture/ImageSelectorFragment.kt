@@ -74,7 +74,14 @@ class ImageSelectorFragment : DialogFragment() {
         }
     }
 
-    fun show() {
+//    fun show() {
+//        show(fm, ImageSelectorFragment::class.java.simpleName)
+//    }
+
+    fun show(success: ((imagePath: Array<String>?) -> Unit)? = null, fail: (() -> Unit)? = null, isAllowMulti: Boolean = false) {
+        this.success = success
+        this.fail = fail
+        this.isAllowMulti = isAllowMulti
         show(fm, ImageSelectorFragment::class.java.simpleName)
     }
 
@@ -89,5 +96,9 @@ class ImageSelectorFragment : DialogFragment() {
             val height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 129f, context?.resources?.displayMetrics).toInt()
             dialog.window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, height)
         }
+    }
+
+    override fun getTheme(): Int {
+        return R.style.TagDialog
     }
 }

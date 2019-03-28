@@ -31,18 +31,20 @@ class AddPictureActivity : BaseActivity<PreparePicturePresenter>(), PreparePictu
             itemClick = { src, index -> previewPicture(src, index) })
     }
 
-    private val imageSelector by lazy {
-        ImageSelectorFragment.create(supportFragmentManager, true).apply {
-            success = { imagePaths ->
-                if (imagePaths != null) {
-                    presenter.addPicturesFromGallery(imagePaths)
-                }
-            }
-            fail = {
-                ToastUtils.showToastOfEWD(this@AddPictureActivity, "增加图片失败")
-            }
-        }
-    }
+//    private val imageSelector by lazy {
+//        ImageSelectorFragment.create(supportFragmentManager, true).apply {
+//            success = { imagePaths ->
+//                if (imagePaths != null) {
+//                    presenter.addPicturesFromGallery(imagePaths)
+//                }
+//            }
+//            fail = {
+//                ToastUtils.showToastOfEWD(this@AddPictureActivity, "增加图片失败")
+//            }
+//        }
+//    }
+
+    private val imageSelector by lazy { ImageSelectorFragment.create(supportFragmentManager) }
 
     private var isActivityStopped = true
 
@@ -132,7 +134,16 @@ class AddPictureActivity : BaseActivity<PreparePicturePresenter>(), PreparePictu
     }
 
     private fun addPicture() {
-        imageSelector.show()
+//        imageSelector.show()
+        imageSelector.show(success = { imagePaths ->
+            if (imagePaths != null) {
+                presenter.addPicturesFromGallery(imagePaths)
+            }
+        },
+            fail = {
+                ToastUtils.showToastOfEWD(this@AddPictureActivity, "增加图片失败")
+            },
+            isAllowMulti = true)
     }
 
 //    private fun addPicture() {
