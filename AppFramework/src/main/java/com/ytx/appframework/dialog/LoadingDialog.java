@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.ytx.appframework.R;
 
 /**
- * Created by fangcan on 2018/4/18.
+ * Created by linxi on 2018/4/18.
  */
 
 public class LoadingDialog extends Dialog {

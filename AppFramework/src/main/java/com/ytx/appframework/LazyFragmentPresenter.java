@@ -3,7 +3,7 @@ package com.ytx.appframework;
 import com.ytx.mvpframework.view.IView;
 
 /**
- * Created by fangcan on 2018/3/13.
+ * Created by linxi on 2018/3/13.
  */
 
 public class LazyFragmentPresenter<V extends IView> extends BaseFragmentPresenter<V> {

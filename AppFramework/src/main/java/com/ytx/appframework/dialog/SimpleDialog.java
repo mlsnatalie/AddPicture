@@ -17,7 +17,7 @@ import com.ytx.appframework.R;
 
 
 /**
- * Created by fangcan on 2018/4/23.
+ * Created by linxi on 2018/4/23.
  */
 
 public class SimpleDialog extends Dialog implements IAlertDialog, IConfirmDialog {

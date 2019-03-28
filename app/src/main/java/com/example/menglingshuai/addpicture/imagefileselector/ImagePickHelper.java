@@ -7,10 +7,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.MediaStore;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+
+import static com.example.menglingshuai.addpicture.imagefileselector.CommonUtils.filterImage;
 
 
 class ImagePickHelper {
@@ -29,12 +30,12 @@ class ImagePickHelper {
     }
 
     public ImagePickHelper(Context context, boolean isAllowMultiple) {
-    	this(context);
-    	this.isAllowMultiple = isAllowMultiple;
+        this(context);
+        this.isAllowMultiple = isAllowMultiple;
     }
 
     public void enableAllowMultiple(boolean isAllowMultiple) {
-    	this.isAllowMultiple = isAllowMultiple;
+        this.isAllowMultiple = isAllowMultiple;
     }
 
     public void setCallback(Callback callback) {
@@ -54,7 +55,7 @@ class ImagePickHelper {
 //                doSelect(activity);
 //            }
 //        } else {
-            doSelect(activity);
+        doSelect(activity);
 //        }
     }
 
@@ -64,10 +65,14 @@ class ImagePickHelper {
     }
 
     private Intent createIntent() {
-	    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        // ref android developer guide
+        // https://developer.android.com/guide/components/intents-common#GetFile
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-	        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, isAllowMultiple);
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, isAllowMultiple);
         }
         return intent;
     }
@@ -77,38 +82,38 @@ class ImagePickHelper {
             return;
         }
         if (requestCode != SELECT_PIC || mCallback == null) {
-        	return;
+            return;
         }
 
         if(data == null) {
-        	mCallback.onError();
-        	return;
+            mCallback.onError();
+            return;
         }
 
-	    if (data.getClipData() != null || data.hasExtra("uris")) {
-	    	// multiple
-		    String[] filePaths;
-		    if (data.hasExtra("uris")) {
-			    ArrayList<Uri> uris = data.getParcelableArrayListExtra("uris");
-			    filePaths = new String[uris.size()];
-			    for (int i = 0; i < uris.size(); i++) {
-				    filePaths[i] = Compatibility.getPath(mContext, uris.get(i));
-			    }
-		    } else {
-			    ClipData clipData = data.getClipData();
-			    int count = clipData.getItemCount();
-			    filePaths = new String[count];
-			    for (int i = 0; i < count; i++) {
-				    filePaths[i] = Compatibility.getPath(mContext, clipData.getItemAt(i).getUri());
-			    }
-		    }
-		    mCallback.onSuccess(filePaths);
-	    } else if(data.getData() != null) {
-		    String[] files = new String[]{Compatibility.getPath(mContext, data.getData())};
-		    mCallback.onSuccess(files);
-	    } else {
-	    	mCallback.onError();
-	    }
+        if (data.getClipData() != null || data.hasExtra("uris")) {
+            // multiple
+            String[] filePaths;
+            if (data.hasExtra("uris")) {
+                ArrayList<Uri> uris = data.getParcelableArrayListExtra("uris");
+                filePaths = new String[uris.size()];
+                for (int i = 0; i < uris.size(); i++) {
+                    filePaths[i] = Compatibility.getPath(mContext, uris.get(i));
+                }
+            } else {
+                ClipData clipData = data.getClipData();
+                int count = clipData.getItemCount();
+                filePaths = new String[count];
+                for (int i = 0; i < count; i++) {
+                    filePaths[i] = Compatibility.getPath(mContext, clipData.getItemAt(i).getUri());
+                }
+            }
+            mCallback.onSuccess(filterImage(filePaths));
+        } else if(data.getData() != null) {
+            String[] files = new String[]{Compatibility.getPath(mContext, data.getData())};
+            mCallback.onSuccess(filterImage(files));
+        } else {
+            mCallback.onError();
+        }
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -127,10 +132,10 @@ class ImagePickHelper {
     }
 
     public interface Callback {
-		void onSuccess(String[] files);
+        void onSuccess(String[] files);
 
-		void onError();
-	}
+        void onError();
+    }
 
 
 }

@@ -2,6 +2,7 @@ package com.example.menglingshuai.addpicture
 
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
@@ -33,12 +34,38 @@ class ImageSelectorFragment : DialogFragment() {
     }
 
     private lateinit var fm:FragmentManager
-    private lateinit var selector: ImageFileSelector
+    private var selector: ImageFileSelector? = null
     var success: ((filePaths:Array<String>?) -> Unit)? = null
     var fail: (() -> Unit)? = null
     private var isAllowMulti = false
 
     private var isAddCamereShow: Boolean = false
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+        if (context == null) {
+            throw IllegalStateException("fragment must attach context")
+        }
+
+        if (selector == null) {
+            selector = ImageFileSelector(context, isAllowMulti)
+        }
+        selector?.enableAllowMultiple(isAllowMulti)
+        selector?.setCallback((object : ImageFileSelector.Callback {
+            override fun onSuccess(p0: Array<String>?) {
+                dismiss()
+                success?.invoke(p0)
+            }
+
+            override fun onError() {
+                dismiss()
+                fail?.invoke()
+            }
+        }))
+
+//        permissionChecker = PermissionChecker(activity!!, arrayOf(Manifest.permission.CAMERA), arrayOf())
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -64,10 +91,10 @@ class ImageSelectorFragment : DialogFragment() {
         }
 
         tv_capture_image.setOnClickListener {
-            selector.takePhoto(activity)
+            selector?.takePhoto(activity)
         }
         tv_select_from_gallery.setOnClickListener {
-            selector.selectImage(activity)
+            selector?.selectImage(activity)
         }
         tv_cancel.setOnClickListener {
             dismiss()
@@ -86,7 +113,7 @@ class ImageSelectorFragment : DialogFragment() {
     }
 
     fun onActivityResult(activity: Activity, stopped: Boolean, requestCode: Int, resultCode: Int, data: Intent?) {
-        selector.onActivityResult(activity, stopped, requestCode, resultCode, data)
+        selector?.onActivityResult(activity, stopped, requestCode, resultCode, data)
     }
 
     override fun onStart() {

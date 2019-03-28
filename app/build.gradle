@@ -40,6 +40,7 @@ dependencies {
     implementation project(':MvpFramework')
 
     implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
 
 //    implementation 'com.github.dfqin:grantor:2.5'
 }

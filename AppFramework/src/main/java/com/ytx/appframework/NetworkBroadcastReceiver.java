@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.util.Log;
 
 /**
- * Created by fangcan on 2017/8/31.
+ * Created by linxi on 2017/8/31.
  */
 
 public class NetworkBroadcastReceiver extends BroadcastReceiver {

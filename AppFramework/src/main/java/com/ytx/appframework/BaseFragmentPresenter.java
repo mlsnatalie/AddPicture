@@ -4,7 +4,7 @@ import com.ytx.mvpframework.presenter.FragmentPresenter;
 import com.ytx.mvpframework.view.IView;
 
 /**
- * Created by fangcan on 2018/3/12.
+ * Created by linxi on 2018/3/12.
  */
 
 public class BaseFragmentPresenter<V extends IView> extends FragmentPresenter<V> {

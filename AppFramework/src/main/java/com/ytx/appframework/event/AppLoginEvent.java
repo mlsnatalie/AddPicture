@@ -1,7 +1,7 @@
 package com.ytx.appframework.event;
 
 /**
- * Created by fangcan on 2018/4/19.
+ * Created by linxi on 2018/4/19.
  */
 
 public class AppLoginEvent {

@@ -30,7 +30,6 @@ class PicturePreviewActivity : BaseActivity<ActivityPresenter<*>>() {
             finish()
             return
         }
-//        Glide.with(this).load(path).into(iv_preview)
         Glide.with(this).load(path).into(iv_preview)
 
         tv_delete.setOnClickListener {

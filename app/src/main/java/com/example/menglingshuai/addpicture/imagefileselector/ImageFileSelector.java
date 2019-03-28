@@ -18,9 +18,9 @@ public class ImageFileSelector {
     private ImageCaptureHelper mImageTaker;
     private ImageCompressHelper mImageCompressHelper;
 
-	public ImageFileSelector(final Context context) {
-		this(context, false);
-	}
+    public ImageFileSelector(final Context context) {
+        this(context, false);
+    }
 
     public ImageFileSelector(final Context context, boolean isAllow) {
         mImagePickHelper = new ImagePickHelper(context, isAllow);
@@ -61,6 +61,13 @@ public class ImageFileSelector {
                 }
             }
         });
+    }
+
+    public void enableAllowMultiple(boolean isAllowMultiple) {
+        if(mImagePickHelper != null) {
+            mImagePickHelper.enableAllowMultiple(isAllowMultiple);
+        }
+
     }
 
     public static void setDebug(boolean debug) {
@@ -118,21 +125,21 @@ public class ImageFileSelector {
     }
 
     private void handleResult(String[] fileNames, boolean deleteSrc) {
-    	if(mCallback == null) {
-    		return;
-	    }
-    	if(fileNames == null) {
-    		mCallback.onSuccess(new String[]{});
-	    } else if(fileNames.length == 1) {
-		    File file = new File(fileNames[0]);
-		    if (file.exists()) {
-			    mImageCompressHelper.compress(fileNames[0], deleteSrc);
-		    } else {
-			    mCallback.onSuccess(new String[]{});
-		    }
-	    } else {
-    		mCallback.onSuccess(fileNames);
-	    }
+        if(mCallback == null) {
+            return;
+        }
+        if(fileNames == null) {
+            mCallback.onSuccess(new String[]{});
+        } else if(fileNames.length == 1) {
+            File file = new File(fileNames[0]);
+            if (file.exists()) {
+                mImageCompressHelper.compress(fileNames[0], deleteSrc);
+            } else {
+                mCallback.onSuccess(new String[]{});
+            }
+        } else {
+            mCallback.onSuccess(fileNames);
+        }
     }
 
     private void handleError() {

@@ -72,7 +72,7 @@ public class ImageFileActivity extends FragmentActivity implements View.OnClickL
         imageFileSelector.setCallback(new ImageFileSelector.Callback() {
             @Override
             public void onSuccess(String[] files) {
-	            Log.d("select-image", Arrays.toString(files));
+                Log.d("select-image", Arrays.toString(files));
                 if (files != null && files.length > 0 && !TextUtils.isEmpty(files[0])) {
                     selectedFilePath = files[0];
                     loadImage();

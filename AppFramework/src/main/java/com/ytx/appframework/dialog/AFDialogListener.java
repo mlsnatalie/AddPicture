@@ -1,7 +1,7 @@
 package com.ytx.appframework.dialog;
 
 /**
- * Created by fangcan on 2018/4/23.
+ * Created by linxi on 2018/4/23.
  */
 
 public abstract class AFDialogListener {

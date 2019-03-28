@@ -3,6 +3,7 @@ package com.example.menglingshuai.addpicture.imagefileselector;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import com.example.menglingshuai.addpicture.imagefileselector.AppLogger;
 
 import java.io.File;
 import java.io.FileOutputStream;
