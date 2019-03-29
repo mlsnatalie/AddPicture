@@ -47,7 +47,7 @@ class UcropActivity : BaseActivity<ActivityPresenter<*>>() {
                             setStatusBarColor(resources.getColor(R.color.camera_bg_title_bar))
                             setToolbarColor(resources.getColor(R.color.camera_bg_title_bar))
                         })
-                        .withMaxResultSize(dp2px(this,200), dp2px(this,200))
+                        .withMaxResultSize(dp2px(this,300), dp2px(this,300))
                         .start(this)
 //            val filePath = FileUtils.getFilePathByUri(this, data.data)
 //            updateLiveCover(filePath)
