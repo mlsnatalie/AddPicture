@@ -50,5 +50,17 @@
 
     />
 
+    <Button
+            android:id="@+id/ucrop_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="滑动截取图片"
+            android:textSize="20dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@id/crop_camera"
+
+    />
+
 
 </android.support.constraint.ConstraintLayout>

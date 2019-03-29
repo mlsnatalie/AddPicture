@@ -14,6 +14,7 @@ class MainActivity : BaseActivity<ActivityPresenter<*>>() {
         title_bar.setTitleBarBgColor(resources.getColor(R.color.camera_bg_title_bar))
         to_add_picture.setOnClickListener { startActivity(Intent(this, AddPictureActivity::class.java)) }
         crop_camera.setOnClickListener {startActivity(Intent(this, CropActivity::class.java)) }
+        ucrop_picture.setOnClickListener { startActivity(Intent(this, UcropActivity::class.java)) }
     }
 
 }
