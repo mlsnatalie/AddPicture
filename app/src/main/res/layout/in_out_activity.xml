@@ -10,79 +10,62 @@
             android:id="@+id/title_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:ytx_title="@string/camera_add_picture"
+            app:ytx_title="移入移出动画"
             app:ytx_left_show="none"
             tools:ignore="MissingConstraints"/>
 
     <Button
-            android:id="@+id/to_add_picture"
-            android:layout_width="match_parent"
+            android:id="@+id/ll_first"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="图片"
+            android:text="从左边移出"
             android:textSize="20dp"
             tools:ignore="MissingConstraints"
             app:layout_constraintTop_toBottomOf="@id/title_bar"
-
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
     />
 
     <Button
-            android:id="@+id/open_camera"
-            android:layout_width="match_parent"
+            android:id="@+id/ll_second"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="打开相机"
             android:textSize="20dp"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/to_add_picture"
+            app:layout_constraintTop_toBottomOf="@id/ll_first"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
 
     />
 
     <Button
-            android:id="@+id/crop_camera"
-            android:layout_width="match_parent"
+            android:id="@+id/ll_third"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="剪切图片"
+            android:text="打开相机"
             android:textSize="20dp"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/open_camera"
+            app:layout_constraintTop_toBottomOf="@id/ll_second"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
 
     />
 
     <Button
-            android:id="@+id/ucrop_picture"
-            android:layout_width="match_parent"
+            android:id="@+id/ll_fourth"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="滑动截取图片"
+            android:text="打开相机"
             android:textSize="20dp"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/crop_camera"
-
-    />
-
-    <Button
-            android:id="@+id/expand_ring"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="圆环扩张动画"
-            android:textSize="20dp"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/ucrop_picture"
-
-    />
-
-    <Button
-            android:id="@+id/in_out_animation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="移入移出动画"
-            android:textSize="20dp"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@id/expand_ring"
+            app:layout_constraintTop_toBottomOf="@id/ll_third"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
 
     />
 

@@ -2,6 +2,8 @@ package com.example.menglingshuai.addpicture
 
 import android.content.Intent
 import android.os.Bundle
+import com.example.menglingshuai.addpicture.animation.InOutAnimationActivity
+import com.example.menglingshuai.addpicture.animation.WaveViewActivity
 import com.ytx.appframework.BaseActivity
 import com.ytx.mvpframework.presenter.ActivityPresenter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,6 +17,8 @@ class MainActivity : BaseActivity<ActivityPresenter<*>>() {
         to_add_picture.setOnClickListener { startActivity(Intent(this, AddPictureActivity::class.java)) }
         crop_camera.setOnClickListener {startActivity(Intent(this, CropActivity::class.java)) }
         ucrop_picture.setOnClickListener { startActivity(Intent(this, UcropActivity::class.java)) }
+        expand_ring.setOnClickListener { startActivity(Intent(this, WaveViewActivity::class.java)) }
+        in_out_animation.setOnClickListener { startActivity(Intent(this, InOutAnimationActivity::class.java)) }
     }
 
 }

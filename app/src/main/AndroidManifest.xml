@@ -28,10 +28,12 @@
         <activity android:name=".AddPictureActivity"/>
         <activity android:name=".CropActivity"/>
         <activity android:name=".UcropActivity"/>
+        <activity android:name=".animation.InOutAnimationActivity"/>
         <activity
                 android:name="com.yalantis.ucrop.UCropActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".animation.WaveViewActivity"/>
         <provider
                 android:name="android.support.v4.content.FileProvider"
                 android:authorities="${applicationId}.fileprovider"
